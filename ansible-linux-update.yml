@@ -16,6 +16,8 @@
         ansible_distribution == 'CentOS'
         or
         ansible_distribution == 'RedHat'
+        or
+        ansible_distribution == 'Fedora'
 
     # This task updates servers that use 'apt' and DEB packages
     # by looking for Debian or Ubuntu as a distribution name.
