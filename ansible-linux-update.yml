@@ -1,7 +1,6 @@
 ---
 - name: Linux Update with Ansible
   hosts: all
-  sudo: yes
   tasks:
     # This task updates servers that use 'yum' and RPM packages
     # by looking for CentOS or RedHat as a distribution name. This
