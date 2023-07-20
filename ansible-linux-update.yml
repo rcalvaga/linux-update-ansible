@@ -30,3 +30,19 @@
         ansible_distribution == 'Debian'
         or
         ansible_distribution == 'Ubuntu'
+
+    - name: Clean YUM Cache
+      command: yum clean all
+      when: >
+        ansible_distribution == 'CentOS'
+        or
+        ansible_distribution == 'RedHat'
+        or
+        ansible_distribution == 'Fedora'
+
+    - name: Clean APT chache
+      command: apt clean all
+      when: >
+        ansible_distribution == 'Debian'
+        or
+        ansible_distribution == 'Ubuntu'
