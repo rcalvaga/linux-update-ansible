@@ -7,11 +7,11 @@
     # will may also pick up modern OracleLinux but OL has a lot of
     # different strings.
     - name: .rpm upgrade server
-      yum: >
-        update_cache=yes
-        name=*
-        state=latest
-        update_cache=yes
+      ansible.builtin.yum:
+        name: "*"
+        update_cache: "yes\n"
+        state: latest
+        cmd: ""
       when: >
         ansible_distribution == 'CentOS'
         or
@@ -22,17 +22,18 @@
     # This task updates servers that use 'apt' and DEB packages
     # by looking for Debian or Ubuntu as a distribution name.
     - name: .deb do dist-upgrade
-      apt: >
-        update_cache=yes
-        cache_valid_time=1200
-        upgrade=dist
+      ansible.builtin.apt:
+        update_cache: "yes"
+        cache_valid_time: "1200"
+        upgrade: "dist\n"
+        cmd: ""
       when: >
         ansible_distribution == 'Debian'
         or
         ansible_distribution == 'Ubuntu'
 
     - name: Clean YUM Cache
-      command: yum clean all
+      ansible.builtin.command: yum clean all
       when: >
         ansible_distribution == 'CentOS'
         or
@@ -41,7 +42,7 @@
         ansible_distribution == 'Fedora'
 
     - name: Clean APT chache
-      command: apt clean all
+      ansible.builtin.command: apt clean all
       when: >
         ansible_distribution == 'Debian'
         or
