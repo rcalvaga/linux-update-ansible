@@ -11,7 +11,6 @@
         name: "*"
         update_cache: "yes"
         state: latest
-        cmd: "update_cache"
       when: >
         ansible_distribution == 'CentOS'
         or
@@ -26,7 +25,6 @@
         update_cache: "yes"
         cache_valid_time: "1200"
         upgrade: "dist\n"
-        cmd: ""
       when: >
         ansible_distribution == 'Debian'
         or
