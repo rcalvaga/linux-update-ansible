@@ -11,7 +11,7 @@
         name: "*"
         update_cache: "yes"
         state: latest
-        cmd: ""
+        cmd: "update_cache"
       when: >
         ansible_distribution == 'CentOS'
         or
