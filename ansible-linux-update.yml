@@ -24,7 +24,7 @@
       ansible.builtin.apt:
         update_cache: "yes"
         cache_valid_time: "1200"
-        upgrade: "dist\n"
+        upgrade: "dist"
       when: >
         ansible_distribution == 'Debian'
         or
